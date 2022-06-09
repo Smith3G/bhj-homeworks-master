@@ -26,4 +26,4 @@ function countDown() {
         if (timer < 0) alert('Вы победили в конкурсе!');
         clearInterval();
 }
-setInterval(countDown, 100);
+setInterval(countDown, 1000);
