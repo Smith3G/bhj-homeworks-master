@@ -17,6 +17,20 @@ class Game {
   }
 
   registerEvents() {
+
+    
+
+    const getSymbol = (event) => {
+     let currentSymbol = this.currentSymbol.textContent;
+     if(event.key.toLowerCase() === currentSymbol.toLowerCase()) {
+       this.success();
+     } else {
+       this.fail()
+     }
+     
+    }
+    document.addEventListener('keypress', getSymbol);
+   
     /*
       TODO:
       Написать обработчик события, который откликается
