@@ -1,7 +1,41 @@
 const elementsSize = document.querySelectorAll('.font-size');
 const book = document.querySelector('#book');
-console.log(book);
-console.log(elementsSize);
+const controls = document.querySelectorAll('.book__control');
+
+
+
+
+
+
+        for(let elem of controls) {
+                for (let control of elem.children) {
+               control.addEventListener('click', fontColorChange);
+               control.addEventListener('click', bgChange);
+                }
+        }
+
+               function bgChange(event) {
+                       event.preventDefault();
+                const bg = event.target.getAttribute('data-bg-color');
+                       if(bg !== null) {
+                        document.body.style.background = bg;
+                
+                       };
+                       
+               
+        }
+             function fontColorChange(event) {
+                event.preventDefault();
+                const font = event.target.getAttribute('data-text-color');
+                if(font !== null) {
+                        document.body.style.color = font;
+                }
+                console.log(event.target);
+             }
+       
+          
+
+        
 
 
 for (let i = 0;i < elementsSize.length; i++) {
