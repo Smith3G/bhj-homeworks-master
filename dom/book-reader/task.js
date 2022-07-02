@@ -1,8 +1,11 @@
 const elementsSize = document.querySelectorAll('.font-size');
-const book = document.querySelector('#book');
+const color = document.querySelectorAll('.color');
 const controls = document.querySelectorAll('.book__control');
+const content = document.querySelector('.book__content');
 
-
+for (let item of color) {
+        console.log(item);
+}
 
 
 
@@ -18,20 +21,34 @@ const controls = document.querySelectorAll('.book__control');
                        event.preventDefault();
                 const bg = event.target.getAttribute('data-bg-color');
                        if(bg !== null) {
-                        document.body.style.background = bg;
+                        content.style.background = bg;
                 
                        };
                        
                
         }
              function fontColorChange(event) {
+                     
                 event.preventDefault();
                 const font = event.target.getAttribute('data-text-color');
                 if(font !== null) {
-                        document.body.style.color = font;
+                        content.style.color = font;
                 }
-                console.log(event.target);
+
+                if (!event.target.classList.contains('color_active')) {
+                        for (let i = 0; i < color.length; i++) {
+                                if (color[i].classList.contains('color_active')) {
+                                   color[i].classList.toggle('color_active');
+                                }
+                        }
+                        event.target.classList.add('color_active');
+                }
+        
+                
              }
+
+
+             
        
           
 
@@ -65,7 +82,9 @@ if(!event.target.classList.contains('font-size_active')) {
                 }
         }
    event.target.classList.add('font-size_active');
+   
 }
+
 
   
 
