@@ -9,7 +9,6 @@ for (let item of color) {
 
 
 
-
         for(let elem of controls) {
                 for (let control of elem.children) {
                control.addEventListener('click', fontColorChange);
