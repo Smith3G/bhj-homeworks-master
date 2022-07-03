@@ -1,0 +1,30 @@
+const taskInput = document.getElementById('task__input');
+const addTaskButton = document.getElementById('tasks__add');
+const taskList = document.getElementById('tasks__list');
+
+
+taskInput.addEventListener('keypress', addTask);
+addTaskButton.addEventListener('click', addTask);
+
+
+function addTask(e) {
+    const task = taskInput;
+
+   if((e.keyCode !== 13) && (this === taskInput)) {
+   return;
+}
+   if (task.value !== '') {
+    taskList.innerHTML += `
+                     <div class="task">
+                         <div class="task__title">
+                        ${task.value}
+                         </div>
+                         <a href="#" class="task__remove" onclick = "this.closest('.task').outerHTML = '';"
+                      >&times;
+                         </a>
+                      </div>`;
+                      task.value = '';
+                      e.preventDefault();
+                      return false;
+   }
+}
