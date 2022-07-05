@@ -14,7 +14,8 @@ function addTask(e) {
    return;
 }
    if (task.value !== '') {
-    taskList.innerHTML += `
+        
+           taskList.innerHTML += `
                      <div class="task">
                          <div class="task__title">
                         ${task.value}
@@ -25,6 +26,23 @@ function addTask(e) {
                       </div>`;
                       task.value = '';
                       e.preventDefault();
+                     saveElement();
+       
+
                       return false;
+
    }
+   function saveElement(){
+        const elem = taskList.innerHTML;
+        localStorage.setItem('key', elem);
+                   
+                   
+                }
 }
+function loadElement() {
+        taskList.innerHTML = localStorage.getItem('key');
+}
+loadElement();
+  
+ 
+
